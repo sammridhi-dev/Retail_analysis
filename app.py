@@ -2,17 +2,17 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
 
-
+# Page Title
 st.title("Data Visualization Dashboard")
 
-
+# Load Dataset
 df = pd.read_csv("cleaned_data.csv")
 
 st.subheader("Dataset Preview")
 st.dataframe(df.head())
 
 # Ensure InvoiceDate is datetime
-#df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'])
+df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'])
 
 # ---------------- BAR CHART ----------------
 st.subheader("Bar Chart: Count by Description")
@@ -96,4 +96,4 @@ st.pyplot(fig)
 st.write(
     "Insight: The Pareto chart shows that a small number of products contribute "
     "to a large portion of total revenue, illustrating the 80/20 principle."
-)
+) 
